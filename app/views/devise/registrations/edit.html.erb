@@ -1,7 +1,7 @@
 <div class="panel panel-default">
 
   <div class="panel-heading">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>>
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
   </div><!-- end panel-heading -->
 
   <div class="panel-body">  
@@ -31,9 +31,11 @@
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
         <%= f.password_field :current_password, autocomplete: "off" %>
       </div>
+      
+      <br>
     
       <div class="actions">
-        <%= f.submit "Update" %>
+        <%= f.submit "Update", class: 'btn btn-danger' %>
       </div>
     <% end %>
   </div><!-- end panel-body -->
