@@ -1,42 +1,31 @@
+<div id="pins" class="transitions-enabled">
 
-<div class="panel panel-default">
+  <% @pins.each do |pin| %>
   
-  <div class="panel-heading">  
-    <h1>Listing pins</h1>
-  </div><!-- end panel-heading -->  
-  
-    <div class="panel-body">
-    <table>
-      <thead>
-        <tr>
-          <th>Description</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-    
-      <tbody>
-        <% @pins.each do |pin| %>
-          <tr>
-            <td><%= image_tag pin.image.url(:medium) %></td>
-            <td><%= pin.description %></td>
-            <td><%= link_to 'Show ', pin %></td>
-            <% if pin.user == current_user %>
-              <td><%= link_to 'Edit ', edit_pin_path(pin) %></td>
-              <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <div class="box">
+      
+      <div class="panel panel-default">        
+        <%= link_to image_tag(pin.image.url(:medium)), pin %><br/>
+        
+        <div class="panel-body">  
+          <%= pin.description %></br>
+        </div><!-- end panel-body -->
+          
+          <% if pin.user == current_user %> 
+            <div class="panel-footer">
+          
+              <%= link_to 'Edit ', edit_pin_path(pin) %><br/>
+              <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+            </div><!-- end panel-footer -->
           <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    
-    <br>
-    
-    <%= link_to 'New Pin', new_pin_path, class: 'btn btn-danger' %>
-    
-  </div><!--end panel-body -->
-  
-  <div class="panel-footer"> 
-  </div><!-- end panel-footer -->  
- 
+          
+      </div><!-- end panel-default -->          
+    </div><!-- end box -->    
+  <% end %>
 
-</div><!-- end panel -->
+</div><!-- end pins -->
+
+<div class="center">
+  <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
+</div>
+    
