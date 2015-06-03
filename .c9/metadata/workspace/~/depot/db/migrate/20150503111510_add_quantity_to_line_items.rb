@@ -1,0 +1,1 @@
+{"filter":false,"title":"20150503111510_add_quantity_to_line_items.rb","tooltip":"~/depot/db/migrate/20150503111510_add_quantity_to_line_items.rb","ace":{},"undoManager":{"mark":0,"position":-1,"stack":[]},"timestamp":1430651761000,"hash":"0d317698274f6f139c06aa0d73257196a00bcd92"}
